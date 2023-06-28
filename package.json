@@ -6,6 +6,9 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "@nx/angular": "^16.4.0",
+    "@nx/react": "^16.4.0",
+    "@nx/web": "^16.4.0",
     "nx": "16.4.0"
   },
   "workspaces": [
