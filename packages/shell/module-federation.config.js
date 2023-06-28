@@ -1,4 +1,4 @@
 module.exports = {
   name: 'shell',
-  remotes: ['landing-page', 'react-mfe-1', 'react-mfe-2'],
+  remotes: ['landing-page', 'react-mfe-1', 'react-mfe-2', 'react-mfe-3'],
 };
