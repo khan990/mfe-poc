@@ -7,5 +7,6 @@ module.exports = {
     'react-mfe-3',
     'angular-mfe-1',
     'angular-mfe-2',
+    'angular-mfe-3',
   ],
 };

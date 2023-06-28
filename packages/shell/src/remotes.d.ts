@@ -12,3 +12,5 @@ declare module 'react-mfe-3/Module';
 declare module 'angular-mfe-1/Module';
 
 declare module 'angular-mfe-2/Module';
+
+declare module 'angular-mfe-3/Module';
