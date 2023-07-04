@@ -3,14 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "serve:shell": "nx run shell:serve",
-    "serve:landing-page": "nx run landing-page:serve",
-    "serve:react-mfe-1": "nx run react-mfe-1:serve",
-    "serve:react-mfe-2": "nx run react-mfe-2:serve",
-    "serve:react-mfe-3": "nx run react-mfe-3:serve",
-    "serve:angular-mfe-1": "nx run angular-mfe-1:serve",
-    "serve:angular-mfe-2": "nx run angular-mfe-2:serve",
-    "serve:all": "nx run shell:serve --devRemotes=landing-page,react-mfe-1,react-mfe-2,react-mfe-3,angular-mfe-1,angular-mfe-2,angular-mfe-3"
+    "serve:shell": "nx run react-shell:serve",
+    "serve:all": "nx run react-shell:serve --devRemotes=ng-mfe"
   },
   "private": true,
   "dependencies": {
