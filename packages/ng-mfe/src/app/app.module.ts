@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [],
   imports: [
+    AppComponent,
     BrowserModule,
     RouterModule.forRoot(
       [
@@ -21,6 +22,6 @@ import { AppComponent } from './app.component';
     ),
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
 })
 export class AppModule {}

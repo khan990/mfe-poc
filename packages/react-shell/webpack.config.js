@@ -6,6 +6,9 @@ const baseConfig = require('./module-federation.config');
 
 const config = {
   ...baseConfig,
+  remotes: [
+    ['ng-mfe', 'http://localhost:4201/remoteEntry.mjs'],
+  ]
 };
 
 // Nx plugins for webpack to build config object from Nx options and context.

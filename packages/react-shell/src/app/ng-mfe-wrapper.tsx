@@ -1,0 +1,29 @@
+import * as React from 'react';
+
+import {mountStandalone} from 'ng-mfe/Module';
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-root': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
+
+export function NgMfeWrapper() {
+  React.useEffect(() => {
+    mountStandalone();
+  }, []);
+
+  return (
+    <React.Suspense fallback={null}>
+        <app-root></app-root>
+    </React.Suspense>
+  );
+}
+
+export default NgMfeWrapper;
