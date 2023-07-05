@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot(
       [
         {
-          path: '',
+          path: 'ng-module',
           loadChildren: () =>
             import('./remote-entry/entry.module').then(
               (m) => m.RemoteEntryModule

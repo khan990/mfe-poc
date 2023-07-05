@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import {mountStandalone} from 'ng-mfe-standalone-component/Module';
+import {mount} from 'ng-mfe-module/Module';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      'app-root': React.DetailedHTMLProps<
+      'app-root-module': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
@@ -14,16 +14,16 @@ declare global {
   }
 }
 
-export function NgMfeWrapper() {
+export function NgMfeModuleWrapper() {
   React.useEffect(() => {
-    mountStandalone();
+    mount();
   }, []);
 
   return (
     <React.Suspense fallback={null}>
-        <app-root></app-root>
+        <app-root-module></app-root-module>
     </React.Suspense>
   );
 }
 
-export default NgMfeWrapper;
+export default NgMfeModuleWrapper;

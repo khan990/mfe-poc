@@ -8,6 +8,7 @@ const config = {
   ...baseConfig,
   remotes: [
     ['ng-mfe-standalone-component', 'http://localhost:4201/remoteEntry.mjs'],
+    ['ng-mfe-module', 'http://localhost:4202/remoteEntry.mjs'],
   ]
 };
 
