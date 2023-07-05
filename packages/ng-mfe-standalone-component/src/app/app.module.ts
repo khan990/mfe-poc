@@ -10,13 +10,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     RouterModule.forRoot(
       [
-        {
-          path: '',
-          loadChildren: () =>
-            import('./remote-entry/entry.module').then(
-              (m) => m.RemoteEntryModule
-            ),
-        },
+
       ],
       { initialNavigation: 'enabledBlocking' }
     ),
