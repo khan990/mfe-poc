@@ -7,7 +7,7 @@ const baseConfig = require('./module-federation.config');
 const config = {
   ...baseConfig,
   remotes: [
-    ['ng-mfe', 'http://localhost:4201/remoteEntry.mjs'],
+    ['ng-mfe-standalone-component', 'http://localhost:4201/remoteEntry.mjs'],
   ]
 };
 

@@ -1,4 +1,4 @@
 // Declare your remote Modules here
 // Example declare module 'about/Module';
 
-declare module 'ng-mfe/Module';
+declare module 'ng-mfe-standalone-component/Module';

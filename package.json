@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "serve:shell": "nx run react-shell:serve",
-    "serve:all": "nx run react-shell:serve --devRemotes=ng-mfe"
+    "serve:all": "nx run react-shell:serve --devRemotes=ng-mfe-standalone-component"
   },
   "private": true,
   "dependencies": {

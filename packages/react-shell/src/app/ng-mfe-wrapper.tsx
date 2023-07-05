@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {mountStandalone} from 'ng-mfe/Module';
+import {mountStandalone} from 'ng-mfe-standalone-component/Module';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

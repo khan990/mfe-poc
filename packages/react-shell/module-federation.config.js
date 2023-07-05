@@ -1,4 +1,4 @@
 module.exports = {
   name: 'react-shell',
-  remotes: ['ng-mfe'],
+  remotes: ['ng-mfe-standalone-component'],
 };
