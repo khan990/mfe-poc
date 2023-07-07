@@ -1,4 +1,4 @@
 module.exports = {
   name: 'home-page-react-mfe',
-  remotes: [],
+  remotes: ['feature-3-angular-mfe'],
 };
