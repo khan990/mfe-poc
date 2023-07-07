@@ -1,0 +1,96 @@
+{
+  "name": "sign-in-page-react-mfe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/sign-in-page-react-mfe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/sign-in-page-react-mfe",
+        "index": "packages/sign-in-page-react-mfe/src/index.html",
+        "baseHref": "/",
+        "main": "packages/sign-in-page-react-mfe/src/main.ts",
+        "tsConfig": "packages/sign-in-page-react-mfe/tsconfig.app.json",
+        "assets": [
+          "packages/sign-in-page-react-mfe/src/favicon.ico",
+          "packages/sign-in-page-react-mfe/src/assets"
+        ],
+        "styles": ["packages/sign-in-page-react-mfe/src/styles.css"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/sign-in-page-react-mfe/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/sign-in-page-react-mfe/src/environments/environment.ts",
+              "with": "packages/sign-in-page-react-mfe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "packages/sign-in-page-react-mfe/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sign-in-page-react-mfe:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sign-in-page-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "sign-in-page-react-mfe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/sign-in-page-react-mfe/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sign-in-page-react-mfe:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sign-in-page-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "sign-in-page-react-mfe:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
