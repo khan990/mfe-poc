@@ -1,0 +1,96 @@
+{
+  "name": "top-nav-bar-react-mfe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/top-nav-bar-react-mfe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/top-nav-bar-react-mfe",
+        "index": "packages/top-nav-bar-react-mfe/src/index.html",
+        "baseHref": "/",
+        "main": "packages/top-nav-bar-react-mfe/src/main.ts",
+        "tsConfig": "packages/top-nav-bar-react-mfe/tsconfig.app.json",
+        "assets": [
+          "packages/top-nav-bar-react-mfe/src/favicon.ico",
+          "packages/top-nav-bar-react-mfe/src/assets"
+        ],
+        "styles": ["packages/top-nav-bar-react-mfe/src/styles.css"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/top-nav-bar-react-mfe/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/top-nav-bar-react-mfe/src/environments/environment.ts",
+              "with": "packages/top-nav-bar-react-mfe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "packages/top-nav-bar-react-mfe/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "top-nav-bar-react-mfe:build",
+        "hmr": true,
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "top-nav-bar-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "top-nav-bar-react-mfe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/top-nav-bar-react-mfe/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "top-nav-bar-react-mfe:build",
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "top-nav-bar-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "top-nav-bar-react-mfe:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

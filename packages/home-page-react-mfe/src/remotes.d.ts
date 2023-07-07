@@ -4,3 +4,5 @@
 declare module 'feature-3-angular-mfe/Module';
 
 declare module 'feature-4-angular-mfe/Module';
+
+declare module 'top-nav-bar-react-mfe/Module';
