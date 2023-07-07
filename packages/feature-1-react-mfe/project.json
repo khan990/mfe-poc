@@ -1,0 +1,96 @@
+{
+  "name": "feature-1-react-mfe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/feature-1-react-mfe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/feature-1-react-mfe",
+        "index": "packages/feature-1-react-mfe/src/index.html",
+        "baseHref": "/",
+        "main": "packages/feature-1-react-mfe/src/main.ts",
+        "tsConfig": "packages/feature-1-react-mfe/tsconfig.app.json",
+        "assets": [
+          "packages/feature-1-react-mfe/src/favicon.ico",
+          "packages/feature-1-react-mfe/src/assets"
+        ],
+        "styles": ["packages/feature-1-react-mfe/src/styles.css"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/feature-1-react-mfe/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/feature-1-react-mfe/src/environments/environment.ts",
+              "with": "packages/feature-1-react-mfe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "packages/feature-1-react-mfe/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-1-react-mfe:build",
+        "hmr": true,
+        "port": 4205
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-1-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-1-react-mfe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/feature-1-react-mfe/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-1-react-mfe:build",
+        "port": 4205
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-1-react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-1-react-mfe:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
