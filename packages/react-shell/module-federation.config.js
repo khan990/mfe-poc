@@ -1,4 +1,4 @@
 module.exports = {
   name: 'react-shell',
-  remotes: [],
+  remotes: ['home-page-react-mfe'],
 };
