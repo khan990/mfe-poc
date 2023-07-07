@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "router-react-lib": ["packages/router-react-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
