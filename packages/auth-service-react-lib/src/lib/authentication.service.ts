@@ -8,7 +8,7 @@ export class AuthenticationService {
   public get isAuthenticated(): boolean {
     if (this._isAuthenticated === false) {
       const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
-      if (currentUser) {
+      if (currentUser && currentUser.username && currentUser.password) {
         this._isAuthenticated = true;
       }
     }
