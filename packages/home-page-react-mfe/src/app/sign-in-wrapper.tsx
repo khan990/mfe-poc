@@ -1,4 +1,3 @@
-import { AuthenticationService } from 'auth-service-react-lib';
 import * as React from 'react';
 import {mount} from 'sign-in-page-react-mfe/Module';
 
@@ -25,8 +24,6 @@ export function SignInWrapper(props: SignInPageWrapperProps) {
   return (
     <div>
         <sign-in-page-react-mfe-wc-el></sign-in-page-react-mfe-wc-el>
-        
-         <h1>Sign In</h1>
     </div>
   );
 }
