@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "serve:shell": "nx run react-shell:serve",
-    "serve:all": "nx run react-shell:serve --devRemotes=sign-in-page-react-mfe,home-page-react-mfe,top-nav-bar-react-mfe,side-nav-bar-react-mfe,feature-1-react-mfe,feature-2-react-mfe,feature-3-angular-mfe,feature-4-angular-mfe "
+    "serve:all": "nx run react-shell:serve --devRemotes=sign-in-page-react-mfe,home-page-react-mfe,top-nav-bar-react-mfe,side-nav-bar-react-mfe,feature-1-react-mfe,feature-2-react-mfe,feature-3-angular-mfe,feature-4-angular-mfe ",
+    "serve:some": "nx run react-shell:serve --devRemotes=sign-in-page-react-mfe,home-page-react-mfe"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@emotion/react": "true11.11.1",
     "@emotion/styled": "true11.11.0",
     "@mui/material": "true5.13.7",
+    "@r2wc/react-to-web-component": "true2.0.2",
     "@swc/helpers": "~0.5.0",
     "add": "true2.0.6",
     "ng": "true0.0.0",

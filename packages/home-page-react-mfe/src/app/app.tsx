@@ -1,29 +1,28 @@
 import * as React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import HomePage from './home-page';
+import SignInWrapper from './sign-in-wrapper';
 
-import NxWelcome from './nx-welcome';
+type Props = {
+  authServiceName: string;
+};
 
-import { Link, Route, Routes } from 'react-router-dom';
-
-const TopNavBarReactMfe = React.lazy(
-  () => import('top-nav-bar-react-mfe/Module')
-);
-
-export function App() {
+export function App(props: Props) {
   return (
-    <React.Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/top-nav-bar-react-mfe">TopNavBarReactMfe</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path="/" element={<NxWelcome title="home-page-react-mfe" />} />
-        <Route path="/top-nav-bar-react-mfe" element={<TopNavBarReactMfe />} />
-      </Routes>
-    </React.Suspense>
+    <BrowserRouter>
+      <React.Suspense fallback={null}>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage authServiceName='authService' />}
+          />
+          <Route
+            path="/login"
+            element={<SignInWrapper authServiceName='authService' />}
+          />
+        </Routes>
+      </React.Suspense>
+    </BrowserRouter>
   );
 }
 

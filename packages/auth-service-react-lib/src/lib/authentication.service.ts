@@ -2,12 +2,12 @@ export class AuthenticationService {
   private _isAuthenticated = false;
   private _callBacks: Array<(isAuthenticated: boolean) => void> = [];
 
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor, @typescript-eslint/no-empty-function
   constructor() {}
 
   public get isAuthenticated(): boolean {
     if (this._isAuthenticated === false) {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
       if (currentUser) {
         this._isAuthenticated = true;
       }
@@ -15,7 +15,11 @@ export class AuthenticationService {
     return this._isAuthenticated;
   }
 
-  public set authenticationEvent(callBack: (isAuthenticated: boolean) => void) {
+  // public set authenticationEvent(callBack: (isAuthenticated: boolean) => void) {
+  //   this._callBacks.push(callBack);
+  // }
+
+  public registerAuthenticationHandlerFn(callBack: (isAuthenticated: boolean) => void) {
     this._callBacks.push(callBack);
   }
 
