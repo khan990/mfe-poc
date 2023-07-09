@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 import { mount as topNavBarReactMfeMount } from 'top-nav-bar-react-mfe/Module';
 import { mount as sideNavBarReactMfeMount } from 'side-nav-bar-react-mfe/Module';
 import WelcomeSubPage from './sub-pages/welcome-sub-page';
+import Feature4ReactSubPage from './sub-pages/feature-2-react-mfe-wrapper';
 
 type Props = {
   authServiceName: string;
@@ -88,7 +89,8 @@ export function HomePage(props: Props) {
             <Grid item xs={8}>
               <Paper variant="outlined" sx={{ width: '100%', height: '100%' }}>
                 <Routes>
-                  <Route path="/" element={<WelcomeSubPage />} />
+                  {/* <Route path="/" element={<WelcomeSubPage />} /> */}
+                  <Route path="/" element={<Feature4ReactSubPage />} />
                 </Routes>
               </Paper>
             </Grid>
