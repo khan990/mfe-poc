@@ -1,4 +1,4 @@
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, makeStyles } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Drawer, Grid, makeStyles } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import * as React from 'react';
 
@@ -15,15 +15,32 @@ const useStyles = makeStyles((theme) => ({
 
 export function App() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [openState, setOpen] = React.useState({
+    modalOpen: false,
+    drawerOpen: false,
+  });
 
   const onClickOpenDialogBtnHandler = () => {
-    setOpen(true);
+    setOpen({
+      modalOpen: true,
+      drawerOpen: openState.drawerOpen,
+    });
   };
 
   const onClickCloseDialogBtnHandler = () => {
-    setOpen(false);
+    setOpen({
+      modalOpen: false,
+      drawerOpen: openState.drawerOpen,
+    });
   };
+
+  const drawerToggleHandler = () => {
+    setOpen({
+      modalOpen: openState.modalOpen,
+      drawerOpen: !openState.drawerOpen,
+    });
+  };
+
   
   return (
     <div className={classes.gridContainer}>
@@ -32,13 +49,13 @@ export function App() {
         <Button variant="contained" onClick={onClickOpenDialogBtnHandler}>Open Modal</Button>
         </Grid>
         <Grid item xs={6} className={classes.gridDisplay}>
-        <Button variant="contained">Open Drawer</Button>
+        <Button variant="contained" onClick={drawerToggleHandler}>Open Drawer</Button>
         </Grid>
       </Grid>
 
 
       <Dialog
-        open={open}
+        open={openState?.modalOpen}
         onClose={onClickCloseDialogBtnHandler}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
@@ -59,6 +76,18 @@ export function App() {
           </Button>
         </DialogActions>
       </Dialog>
+
+
+
+
+
+      <Drawer
+            anchor="right"
+            open={openState?.drawerOpen}
+            onClose={drawerToggleHandler}
+          >
+            <h3>Hello World Drawer!</h3>
+          </Drawer>
     </div>
   );
 }
