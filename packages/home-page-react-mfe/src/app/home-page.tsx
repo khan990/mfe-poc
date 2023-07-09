@@ -1,12 +1,13 @@
 import { AuthenticationService } from 'auth-service-react-lib';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
+import Paper from '@mui/material/Paper';
 import { Grid } from '@material-ui/core';
-import {mount as topNavBarReactMfeMount} from 'top-nav-bar-react-mfe/Module';
-import {mount as sideNavBarReactMfeMount} from 'side-nav-bar-react-mfe/Module';
-
+import { mount as topNavBarReactMfeMount } from 'top-nav-bar-react-mfe/Module';
+import { mount as sideNavBarReactMfeMount } from 'side-nav-bar-react-mfe/Module';
+import WelcomeSubPage from './sub-pages/welcome-sub-page';
 
 type Props = {
   authServiceName: string;
@@ -20,8 +21,14 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      'top-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & TopNavBarReactMfeProps, HTMLElement>;
-      'side-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      'top-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & TopNavBarReactMfeProps,
+        HTMLElement
+      >;
+      'side-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
     }
   }
 }
@@ -78,7 +85,13 @@ export function HomePage(props: Props) {
             <Grid item xs={4}>
               <side-nav-bar-react-mfe-wc-el></side-nav-bar-react-mfe-wc-el>
             </Grid>
-            <Grid item xs={8}></Grid>
+            <Grid item xs={8}>
+              <Paper variant="outlined" sx={{ width: '100%', height: '100%' }}>
+                <Routes>
+                  <Route path="/" element={<WelcomeSubPage />} />
+                </Routes>
+              </Paper>
+            </Grid>
           </Grid>
         </div>
       </div>
