@@ -27,7 +27,6 @@ export function App() {
   return (
     <React.Suspense fallback={null}>
       <home-page-react-mfe-wc-el auth-service-name="authServiceName"></home-page-react-mfe-wc-el>
-      
     </React.Suspense>
   );
 }

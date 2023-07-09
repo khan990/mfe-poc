@@ -1,6 +1,6 @@
 module.exports = {
   name: 'top-nav-bar-react-mfe',
   exposes: {
-    './Module': './src/remote-entry.ts',
+    './Module': './src/bootstrapMfe.ts',
   },
 };
