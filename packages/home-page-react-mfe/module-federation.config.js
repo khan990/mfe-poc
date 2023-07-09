@@ -6,10 +6,9 @@ module.exports = {
     'side-nav-bar-react-mfe',
     'feature-1-react-mfe',
     // 'feature-2-react-mfe',
-    // 'feature-3-angular-mfe',
+    'feature-3-angular-mfe',
     // 'feature-4-angular-mfe',
   ],
-  // library: { type: 'module', name: 'home-page-react-mfe' },
   exposes: {
     './Module': './src/bootstrapMfe.ts',
   },

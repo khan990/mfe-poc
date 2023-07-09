@@ -1,11 +1,11 @@
-import {mount} from 'feature-1-react-mfe/Module';
+import {mount} from 'feature-3-angular-mfe/Module';
 import { useEffect } from 'react';
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace JSX {
       interface IntrinsicElements {
-        'feature-1-react-mfe-wc-el': React.DetailedHTMLProps<
+        'feature-3-angular-mfe-wc-el': React.DetailedHTMLProps<
           React.HTMLAttributes<HTMLElement>,
           HTMLElement
         >;
@@ -14,7 +14,7 @@ declare global {
   }
 
 
-export function Feature1ReactSubPage() {
+export function Feature3AngularSubPage() {
   
     useEffect(() => {
         mount();
@@ -22,9 +22,9 @@ export function Feature1ReactSubPage() {
 
   return (
     <div>
-        <feature-1-react-mfe-wc-el></feature-1-react-mfe-wc-el>
+        <feature-3-angular-mfe-wc-el></feature-3-angular-mfe-wc-el>
     </div>
   );
 }
 
-export default Feature1ReactSubPage;
+export default Feature3AngularSubPage;

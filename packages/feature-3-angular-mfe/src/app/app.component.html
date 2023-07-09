@@ -1,0 +1,18 @@
+<button mat-raised-button color="primary" (click)="onClickOpenModalBtn()">
+  Open Modal
+</button>
+
+<button mat-raised-button color="primary" (click)="onClickOpenDrawerBtn()">
+  Open Drawer
+</button>
+
+<mat-drawer #drawer mode="side">
+  <p>Auto-resizing sidenav</p>
+  <p>Lorem, ipsum dolor sit amet consectetur.</p>
+</mat-drawer>
+
+
+
+<ng-template #matModal>
+    Hello World!
+</ng-template>
