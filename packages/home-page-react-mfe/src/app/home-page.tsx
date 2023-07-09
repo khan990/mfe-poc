@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import {mount as topNavBarReactMfeMount} from 'top-nav-bar-react-mfe/Module';
+import {mount as sideNavBarReactMfeMount} from 'side-nav-bar-react-mfe/Module';
 
 
 type Props = {
@@ -20,6 +21,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       'top-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & TopNavBarReactMfeProps, HTMLElement>;
+      'side-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
     }
   }
 }
@@ -54,6 +56,7 @@ export function HomePage(props: Props) {
 
   React.useEffect(() => {
     topNavBarReactMfeMount();
+    sideNavBarReactMfeMount();
 
     if (props.authServiceName) {
       const authService: AuthenticationService = (window as any)[
@@ -72,7 +75,9 @@ export function HomePage(props: Props) {
         </div>
         <div>
           <Grid container spacing={3}>
-            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
+              <side-nav-bar-react-mfe-wc-el></side-nav-bar-react-mfe-wc-el>
+            </Grid>
             <Grid item xs={8}></Grid>
           </Grid>
         </div>
