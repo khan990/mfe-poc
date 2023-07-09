@@ -15,10 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "auth-service-react-lib": [
-        "packages/auth-service-react-lib/src/index.ts"
-      ],
-      "router-react-lib": ["packages/router-react-lib/src/index.ts"]
+      "application-base-lib": ["packages/application-base-lib/src/index.ts"],
+      "auth-service-react-lib": ["packages/auth-service-react-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
