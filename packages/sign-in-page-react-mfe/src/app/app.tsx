@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     gap: '1rem',
   },
+
+  topMargin: {
+    marginTop: '3rem',
+  }
 }));
 
 export function App() {
@@ -27,7 +31,7 @@ export function App() {
       <Grid container spacing={3}>
         <Grid item xs></Grid>
         <Grid item xs={6}>
-          <div className={classes.grid}>
+          <div className={`${classes.grid} ${classes.topMargin}`}>
             <TextField
               id="outlined-basic"
               placeholder="Username"
