@@ -1,10 +1,6 @@
 import * as React from 'react';
 import {mount} from 'sign-in-page-react-mfe/Module';
 
-interface SignInPageWrapperProps {
-  authServiceName: string;
-}
-
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
@@ -14,12 +10,10 @@ declare global {
   }
 }
 
-export function SignInWrapper(props: SignInPageWrapperProps) {
-
+export function SignInWrapper() {
   React.useEffect(() => {
     mount();
   }, []);
-
 
   return (
     <div>

@@ -3,22 +3,18 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import HomePage from './home-page';
 import SignInWrapper from './sign-in-wrapper';
 
-type Props = {
-  authServiceName: string;
-};
-
-export function App(props: Props) {
+export function App() {
   return (
     <BrowserRouter>
       <React.Suspense fallback={null}>
         <Routes>
           <Route
             path="/"
-            element={<HomePage authServiceName='authService' />}
+            element={<HomePage/>}
           />
           <Route
             path="/login"
-            element={<SignInWrapper authServiceName='authService' />}
+            element={<SignInWrapper/>}
           />
         </Routes>
       </React.Suspense>

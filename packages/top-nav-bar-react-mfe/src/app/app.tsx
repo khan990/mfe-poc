@@ -2,9 +2,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { AuthenticationService } from 'auth-service-react-lib';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
+import { getAuthService } from 'application-base-lib';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -18,7 +18,7 @@ export function App() {
   const classes = useStyles();
 
   const logoutBtnClickHandler = () => {
-    const authService: AuthenticationService = (window as any).authService;
+    const authService = getAuthService();;
     authService.logout();
     window.location.href = '/login';
   };

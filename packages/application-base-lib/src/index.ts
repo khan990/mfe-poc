@@ -1,1 +1,1 @@
-export * from './lib/router-react-lib';
+export * from './lib';

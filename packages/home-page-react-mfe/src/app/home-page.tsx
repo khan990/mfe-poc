@@ -1,4 +1,3 @@
-import { AuthenticationService } from 'auth-service-react-lib';
 import * as React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,24 +6,15 @@ import Paper from '@mui/material/Paper';
 import { Grid } from '@material-ui/core';
 import { mount as topNavBarReactMfeMount } from 'top-nav-bar-react-mfe/Module';
 import { mount as sideNavBarReactMfeMount } from 'side-nav-bar-react-mfe/Module';
-import WelcomeSubPage from './sub-pages/welcome-sub-page';
-import Feature1ReactSubPage from './sub-pages/feature-2-react-mfe-wrapper';
 import Feature3AngularSubPage from './sub-pages/feature-3-angular-mfe-wrapper';
-
-type Props = {
-  authServiceName: string;
-};
-
-interface TopNavBarReactMfeProps {
-  'auth-service-name': string;
-}
+import { getAuthService } from 'application-base-lib';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
       'top-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & TopNavBarReactMfeProps,
+        React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
       'side-nav-bar-react-mfe-wc-el': React.DetailedHTMLProps<
@@ -51,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function HomePage(props: Props) {
+export function HomePage() {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -67,20 +57,16 @@ export function HomePage(props: Props) {
     topNavBarReactMfeMount();
     sideNavBarReactMfeMount();
 
-    if (props.authServiceName) {
-      const authService: AuthenticationService = (window as any)[
-        props.authServiceName
-      ];
-      authService.registerAuthenticationHandlerFn(authenticationEventHandler);
-      authenticationEventHandler(authService.isAuthenticated);
-    }
+    const authService = getAuthService();
+    authService.registerAuthenticationHandlerFn(authenticationEventHandler);
+    authenticationEventHandler(authService.isAuthenticated);
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.page}>
         <div className={classes.navBar}>
-          <top-nav-bar-react-mfe-wc-el auth-service-name="authService"></top-nav-bar-react-mfe-wc-el>
+          <top-nav-bar-react-mfe-wc-el></top-nav-bar-react-mfe-wc-el>
         </div>
         <div>
           <Grid container spacing={3}>

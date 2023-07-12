@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Button, TextField, Grid } from '@material-ui/core';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {getAuthService} from 'application-base-lib';
 
 const theme = createTheme();
 
@@ -17,7 +17,7 @@ export function App() {
   const classes = useStyles();
 
   const loginBtnClickHandler = () => {
-    const authService = (window as any).authService;
+    const authService = getAuthService();
     authService.login();
     window.location.href = '/';
   };
