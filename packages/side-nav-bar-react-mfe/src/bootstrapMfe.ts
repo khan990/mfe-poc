@@ -6,11 +6,7 @@ const mount = () => {
     return;
   }
 
-  const sideNavBarReactMfe = r2wc(App, {
-    props: {
-      authServiceName: 'string',
-    },
-  });
+  const sideNavBarReactMfe = r2wc(App);
   customElements.define('side-nav-bar-react-mfe-wc-el', sideNavBarReactMfe);
 };
 

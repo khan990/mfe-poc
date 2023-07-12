@@ -6,11 +6,7 @@ const mount = () => {
     return;
   }
 
-  const feature4ReactMfe = r2wc(App, {
-    props: {
-      authServiceName: 'string',
-    },
-  });
+  const feature4ReactMfe = r2wc(App);
   customElements.define('feature-1-react-mfe-wc-el', feature4ReactMfe);
 };
 

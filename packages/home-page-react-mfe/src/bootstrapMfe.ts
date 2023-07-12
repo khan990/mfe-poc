@@ -6,11 +6,7 @@ const mount = () => {
     return;
   }
 
-  const homePageReactMfe = r2wc(App, {
-    props: {
-      authServiceName: 'string',
-    },
-  });
+  const homePageReactMfe = r2wc(App);
   customElements.define('home-page-react-mfe-wc-el', homePageReactMfe);
 };
 

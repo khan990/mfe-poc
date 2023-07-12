@@ -6,11 +6,7 @@ const mount = () => {
     return;
   }
 
-  const topNavBarReactMfe = r2wc(App, {
-    props: {
-      authServiceName: 'string',
-    },
-  });
+  const topNavBarReactMfe = r2wc(App);
   customElements.define('top-nav-bar-react-mfe-wc-el', topNavBarReactMfe);
 };
 

@@ -1,4 +1,4 @@
-import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
+import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
-  ngDoBootstrap(appRef: ApplicationRef): void {
+  ngDoBootstrap(): void {
     const feature3AngularMfeElement = createCustomElement(AppComponent, {
       injector: this.injector,
     });

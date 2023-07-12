@@ -6,18 +6,10 @@ import SignInWrapper from './sign-in-wrapper';
 export function App() {
   return (
     <BrowserRouter>
-      <React.Suspense fallback={null}>
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage/>}
-          />
-          <Route
-            path="/login"
-            element={<SignInWrapper/>}
-          />
-        </Routes>
-      </React.Suspense>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<SignInWrapper />} />
+      </Routes>
     </BrowserRouter>
   );
 }
