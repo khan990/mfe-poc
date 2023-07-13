@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 
 const theme = createTheme();
 
-export function App({navigate}: {navigate?: (path: string) => void}) {
+export function App({ navigate }: { navigate?: (path: string) => void }) {
   const location = useLocation();
   const pathnameRef = useRef(location.pathname);
 
@@ -36,7 +36,9 @@ export function App({navigate}: {navigate?: (path: string) => void}) {
             </NavLink>
           </MenuItem>
           <MenuItem>
-            <ListItemText>Angular Plugin Example</ListItemText>
+            <NavLink to="/feature-3-angular">
+              <ListItemText>Angular Plugin Example</ListItemText>
+            </NavLink>
           </MenuItem>
           <Divider />
           <MenuItem>

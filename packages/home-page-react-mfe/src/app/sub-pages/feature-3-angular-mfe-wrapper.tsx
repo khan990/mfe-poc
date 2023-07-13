@@ -1,29 +1,30 @@
-import {mount} from 'feature-3-angular-mfe/Module';
-import { useEffect } from 'react';
+import { mount } from 'feature-3-angular-mfe/Module';
+import { useEffect, useRef } from 'react';
 
 declare global {
-    // eslint-disable-next-line @typescript-eslint/no-namespace
-    namespace JSX {
-      interface IntrinsicElements {
-        'feature-3-angular-mfe-wc-el': React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLElement>,
-          HTMLElement
-        >;
-      }
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-root': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
     }
   }
-
+}
 
 export function Feature3AngularSubPage() {
-  
-    useEffect(() => {
-        mount();
-    }, []);
+  const mountMfeRef = useRef<any>(false);
+
+  useEffect(() => {
+    if (mountMfeRef.current === false) {
+      mountMfeRef.current = true; // Set the flag to indicate mount has been called
+      mount();
+    }
+  }, []);
 
   return (
-    <div>
-        <feature-3-angular-mfe-wc-el></feature-3-angular-mfe-wc-el>
-    </div>
+      <app-root></app-root>
   );
 }
 

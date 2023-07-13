@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import Paper from '@mui/material/Paper';
@@ -7,8 +7,6 @@ import { Grid } from '@material-ui/core';
 import { getAuthService } from 'application-base-lib';
 import SideNavBarReactMfeWrapper from './page-components/side-nav-bar-react-mfe-wrapper';
 import TopNavBarReactMfeWrapper from './page-components/top-nav-bar-react-mfe-wrapper';
-import WelcomeSubPage from './sub-pages/welcome-sub-page';
-import Feature1ReactSubPage from './sub-pages/feature-1-react-mfe-wrapper';
 
 const theme = createTheme();
 

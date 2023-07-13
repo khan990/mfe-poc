@@ -10,6 +10,7 @@ import SignInWrapper from './sign-in-wrapper';
 import WelcomeSubPage from './sub-pages/welcome-sub-page';
 import Feature1ReactSubPage from './sub-pages/feature-1-react-mfe-wrapper';
 import { setReactRouterContext } from 'application-base-lib';
+import Feature3AngularSubPage from './sub-pages/feature-3-angular-mfe-wrapper';
 
 const Root = () => {
   return <Outlet />;
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<HomePage />}>
         <Route path='/' element={<WelcomeSubPage />} />
         <Route path='/feature-1-react' element={<Feature1ReactSubPage />} />
+        <Route path='/feature-3-angular' element={<Feature3AngularSubPage />} />
       </Route>
       
       <Route path="/login" element={<SignInWrapper />} />
