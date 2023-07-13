@@ -10,6 +10,6 @@ module.exports = {
     // 'feature-4-angular-mfe',
   ],
   exposes: {
-    './Module': './src/bootstrapMfe.ts',
+    './Module': './src/bootstrapMfe.tsx',
   },
 };

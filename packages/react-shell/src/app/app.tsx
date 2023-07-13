@@ -1,31 +1,37 @@
 import * as React from 'react';
 import { AuthenticationService } from 'auth-service-react-lib';
 import { setAuthService } from 'application-base-lib';
-import { mount } from 'home-page-react-mfe/Module';
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      'home-page-react-mfe-wc-el': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
 
 export function App() {
   const authService = new AuthenticationService();
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isMountedRef = React.useRef(false); // Track if mount has already been called
 
   React.useEffect(() => {
     setAuthService(authService);
-    mount();
-  });
+  }, []);
 
-  return <home-page-react-mfe-wc-el></home-page-react-mfe-wc-el>;
+  React.useLayoutEffect(() => {
+    const parentNode = ref.current;
+    if (parentNode && !isMountedRef.current) {
+      isMountedRef.current = true; // Set the flag to indicate mount has been called
+      mount(parentNode);
+    }
+  }, []);
+
+  return <div ref={ref}></div>;
 }
 
 export default App;
 
-// https://github.com/ringcentral/web-apps#web-component-apps
+// Outside of the component, define the mount function
+export const mount = (parentNode: HTMLElement) => {
+  import('home-page-react-mfe/Module')
+    .then((module) => {
+      const { mount: mountHomePage } = module;
+      mountHomePage(parentNode);
+    })
+    .catch((error) => {
+      console.error('Error loading module:', error);
+    });
+};
