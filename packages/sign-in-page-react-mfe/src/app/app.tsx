@@ -1,7 +1,8 @@
 import { Button, TextField, Grid } from '@material-ui/core';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {getAuthService} from 'application-base-lib';
+import { getAuthService } from 'application-base-lib';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -14,16 +15,20 @@ const useStyles = makeStyles((theme) => ({
 
   topMargin: {
     marginTop: '3rem',
-  }
+  },
 }));
 
 export function App() {
   const classes = useStyles();
+  const navigate = useNavigate();
+  
+
 
   const loginBtnClickHandler = () => {
     const authService = getAuthService();
     authService.login();
-    window.location.href = '/';
+    console.log('User is authenticated, now navigating...');
+    navigate('');
   };
 
   return (
@@ -48,7 +53,11 @@ export function App() {
               label="password"
               variant="outlined"
             />
-            <Button variant="contained" color="primary" onClick={loginBtnClickHandler}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={loginBtnClickHandler}
+            >
               Login
             </Button>
           </div>

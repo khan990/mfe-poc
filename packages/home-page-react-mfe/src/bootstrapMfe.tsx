@@ -10,8 +10,6 @@ const mount = (parentNode: HTMLElement) => {
       <App />
     </StrictMode>
   );
-
-  console.log(parentNode);
 };
 
 export { mount };

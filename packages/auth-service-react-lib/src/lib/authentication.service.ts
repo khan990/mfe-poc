@@ -15,10 +15,6 @@ export class AuthenticationService {
     return this._isAuthenticated;
   }
 
-  // public set authenticationEvent(callBack: (isAuthenticated: boolean) => void) {
-  //   this._callBacks.push(callBack);
-  // }
-
   public registerAuthenticationHandlerFn(callBack: (isAuthenticated: boolean) => void) {
     this._callBacks.push(callBack);
   }

@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { getAuthService } from 'application-base-lib';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -16,11 +17,12 @@ const theme = createTheme();
 
 export function App() {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   const logoutBtnClickHandler = () => {
     const authService = getAuthService();;
     authService.logout();
-    window.location.href = '/login';
+    navigate('/login');
   };
 
   return (

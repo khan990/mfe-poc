@@ -1,24 +1,19 @@
 import * as React from 'react';
 import { mount } from 'sign-in-page-react-mfe/Module';
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace JSX {
-    interface IntrinsicElements {
-      'sign-in-page-react-mfe-wc-el': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
-
 export function SignInWrapper() {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const mountMfeRef = React.useRef<any>(null);
+  
   React.useEffect(() => {
-    mount();
+    const parentNode = containerRef.current;
+    if (parentNode && !mountMfeRef.current) {
+      mountMfeRef.current = true; // Set the flag to indicate mount has been called
+      mount(parentNode);
+    }
   }, []);
 
-  return <sign-in-page-react-mfe-wc-el></sign-in-page-react-mfe-wc-el>;
+  return <div ref={containerRef}></div>;
 }
 
 export default SignInWrapper;

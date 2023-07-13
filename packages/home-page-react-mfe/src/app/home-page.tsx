@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import Paper from '@mui/material/Paper';
@@ -57,14 +57,7 @@ export function HomePage() {
             </Grid>
             <Grid item xs={8}>
               <Paper variant="outlined" sx={{ width: '100%', height: '100%' }}>
-                <Routes>
-                  <Route path="/" element={<WelcomeSubPage />} />
-                  <Route
-                    path="/feature-1-react"
-                    element={<Feature1ReactSubPage />}
-                  />
-                  {/* <Route path="/" element={<Feature3AngularSubPage />} /> */}
-                </Routes>
+                <Outlet />
               </Paper>
             </Grid>
           </Grid>
