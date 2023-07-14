@@ -1,6 +1,6 @@
 {
   "name": "mfe-poc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "serve:shell": "nx run react-shell:serve",
