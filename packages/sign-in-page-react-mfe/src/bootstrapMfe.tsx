@@ -7,12 +7,12 @@ import {
 } from 'react-router-dom';
 
 // sign-in-page-react-mfe
-const mount = (parentNode: HTMLElement) => {
+const mount = (parentNode: HTMLElement, navigateFn: (pathname: string) => void) => {
   const root = ReactDOM.createRoot(parentNode);
   root.render(
     <StrictMode>
       <BrowserRouter>
-        <App />
+        <App navigateFn={navigateFn} />
       </BrowserRouter>
     </StrictMode>
   );

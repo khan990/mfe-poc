@@ -2,7 +2,6 @@ import { Button, TextField, Grid } from '@material-ui/core';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getAuthService } from 'application-base-lib';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -18,17 +17,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function App() {
+export function App({navigateFn}: {navigateFn?: (pathname: string) => void}) {
   const classes = useStyles();
-  const navigate = useNavigate();
-  
-
 
   const loginBtnClickHandler = () => {
     const authService = getAuthService();
     authService.login();
     console.log('User is authenticated, now navigating...');
-    navigate('');
+    navigateFn && navigateFn('/');
   };
 
   return (
