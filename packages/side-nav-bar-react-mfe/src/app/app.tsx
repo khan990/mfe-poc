@@ -42,7 +42,9 @@ export function App({ navigate }: { navigate?: (path: string) => void }) {
           </MenuItem>
           <Divider />
           <MenuItem>
-            <ListItemText>React And Angular Plugins Example</ListItemText>
+            <NavLink to="/feature-2-and-4-combo">
+              <ListItemText>React And Angular Plugins Example</ListItemText>
+            </NavLink>
           </MenuItem>
         </MenuList>
       </Paper>

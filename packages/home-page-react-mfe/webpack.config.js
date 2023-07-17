@@ -11,7 +11,7 @@ const config = {
     ['top-nav-bar-react-mfe', 'http://localhost:4203/remoteEntry.js'],
     ['side-nav-bar-react-mfe', 'http://localhost:4204/remoteEntry.js'],
     ['feature-1-react-mfe', 'http://localhost:4205/remoteEntry.js'],
-    // 'feature-2-react-mfe',
+    ['feature-2-react-mfe', 'http://localhost:4206/remoteEntry.js'],
     ['feature-3-angular-mfe', 'http://localhost:4208/remoteEntry.mjs'],
     // 'feature-4-angular-mfe',
   ]

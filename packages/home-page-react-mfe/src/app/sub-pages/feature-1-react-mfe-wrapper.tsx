@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { mount } from 'feature-1-react-mfe/Module';
 
 export function Feature1ReactSubPage() {

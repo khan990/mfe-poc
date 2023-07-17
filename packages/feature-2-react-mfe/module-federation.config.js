@@ -1,5 +1,7 @@
 module.exports = {
   name: 'feature-2-react-mfe',
   remotes: [],
-  exposes: {},
+  exposes: {
+    './Module': './src/bootstrapMfe.tsx',
+  },
 };
