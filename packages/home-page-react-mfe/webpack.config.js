@@ -13,7 +13,7 @@ const config = {
     ['feature-1-react-mfe', 'http://localhost:4205/remoteEntry.js'],
     ['feature-2-react-mfe', 'http://localhost:4206/remoteEntry.js'],
     ['feature-3-angular-mfe', 'http://localhost:4208/remoteEntry.mjs'],
-    // 'feature-4-angular-mfe',
+    ['feature-4-angular-mfe', 'http://localhost:4209/remoteEntry.mjs'],
   ]
 };
 

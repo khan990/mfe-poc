@@ -10,14 +10,14 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot(
       [
         {
-          path: '',
+          path: 'feature-2-and-4-combo',
           loadChildren: () =>
             import('./remote-entry/entry.module').then(
               (m) => m.RemoteEntryModule
             ),
         },
       ],
-      { initialNavigation: 'enabledBlocking' }
+      { initialNavigation: 'enabledBlocking', enableTracing: true,  }
     ),
   ],
   providers: [],

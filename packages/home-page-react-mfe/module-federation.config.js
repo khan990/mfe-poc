@@ -7,7 +7,7 @@ module.exports = {
     'feature-1-react-mfe',
     'feature-2-react-mfe',
     'feature-3-angular-mfe',
-    // 'feature-4-angular-mfe',
+    'feature-4-angular-mfe',
   ],
   exposes: {
     './Module': './src/bootstrapMfe.tsx',

@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper';
 import {
   NavLink,
   useRoutes,
@@ -43,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 export function App() {
   const classes = useStyles();
   return (
-    <Paper variant="outlined" sx={{ width: '100%', height: '100%' }}>
       <div>
         <h1>Feature 2 React MFE</h1>
         <div>
@@ -61,7 +59,6 @@ export function App() {
           </div>
         </div>
       </div>
-    </Paper>
   );
 }
 

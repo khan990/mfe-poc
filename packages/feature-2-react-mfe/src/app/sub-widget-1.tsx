@@ -13,7 +13,7 @@ export function SubWidget1() {
   const classes = useStyles();
 
   return (
-    <Typography variant="h3" component="h3" className={classes.welcome} >
+    <Typography variant="h4" component="h4" className={classes.welcome} >
       Sub Widget 1
     </Typography>
   );
